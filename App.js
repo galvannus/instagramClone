@@ -11,8 +11,13 @@ import {
   Text,
   View
 } from 'react-native';
+import { Provider } from 'react-redux';
 import { RutasNoAutenticadas } from './Componentes/NoAutenticados/RutasNoAutenticadas';
 import { RutasAutenticadas } from "./Componentes/Autenticados/RutasAutenticadas";
+import Store from './Store/Store';
+
+
+
 
 //Disable the yellow message isMounted()
 import { YellowBox } from 'react-native';
@@ -34,7 +39,9 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <RutasAutenticadas />
+        <Provider store={Store}>
+          <RutasNoAutenticadas />
+        </Provider>
       </View>
     );
   }
