@@ -1,4 +1,5 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { reducer as form } from 'redux-form';
 
 const reducerPrueba = (state = [0], action) => {
     switch (action.type) {
@@ -14,8 +15,9 @@ const reducerPrueba = (state = [0], action) => {
 
 const reducers = combineReducers({
     reducerPrueba,
+    form,
 });
 
-const store = createStore(reducers);
+const store = createStore(reducers, applyMiddleware());
 
 export default store;
